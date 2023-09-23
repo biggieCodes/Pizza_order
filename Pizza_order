@@ -1,0 +1,33 @@
+# Define the pizza prices
+pizza_prices = {
+    "S": 15,
+    "M": 20,
+    "L": 25
+}
+
+# Define the topping prices
+pepperoni_price = 2  # Same price for medium and large
+extra_cheese_price = 1
+
+# Input from the customer
+size = input("Enter the pizza size (S, M, L): ").upper()
+add_pepperoni = input("Add pepperoni (Yes/No): ").upper()
+extra_cheese = input("Add extra cheese (Y/N): ").upper()
+
+# Calculate the base pizza price
+if size in pizza_prices:
+    base_price = pizza_prices[size]
+else:
+    print("Invalid pizza size. Please enter S, M, or L.")
+    exit()
+
+# Add pepperoni cost if selected
+if add_pepperoni == "YES" and size in ["M", "L"]:
+    base_price += pepperoni_price
+
+# Add extra cheese cost if selected
+if extra_cheese == "Y":
+    base_price += extra_cheese_price
+
+# Display the final bill
+print(f"Your final bill is: ${base_price}")
